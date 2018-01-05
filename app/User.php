@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'nickname', 'country'
     ];
 
     /**
@@ -26,4 +26,14 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function scores()
+    {
+        return $this->hasMany(Score::class);
+    }
+
+    public function publish(Score $score)
+    {
+        $this->scores()->save($score);
+    }
 }

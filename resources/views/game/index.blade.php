@@ -2,7 +2,12 @@
 
 @section('content')
 <div class="game-container">
-  <h1>Bootstrap starter template</h1>
-  <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+	<canvas id="myCanvas" width="480" height="320"></canvas>
+
+  	@include('scores.create')
 </div>
+@endsection
+
+@section('scripts')
+<script src="/js/game.js"></script>
 @endsection
