@@ -72,8 +72,8 @@ function collisionDetection() {
 					b.status = 0;
 					score++;
 					if(score == (brickColumnCount * brickRowCount)){
-						alert("You Win");
-						document.location.reload();
+						// alert("You Win");
+						// document.location.reload();
 					}
 				}
 			}
@@ -128,6 +128,16 @@ function drawLives() {
 	ctx.fillText("Lives: " + lives, canvas.width - 65, 20);
 }
 
+function gameOver(score) {
+	axios.post('/scores',{'score': score})
+	.then(response => {
+	  console.log(response);
+	})
+	.catch(error => {
+	  console.log(error);
+	});
+}
+
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height); //Clears entire canvas
 	drawBricks();
@@ -144,7 +154,7 @@ function draw() {
 	} else if(y + dy > canvas.height-ballRadius) {
 		lives--;
 		if(!lives){
-			document.location.reload();
+			gameOver(score);
 		} else {
 			x = canvas.width/2;
 			y = canvas.height-30;

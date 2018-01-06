@@ -10,7 +10,10 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
 
-    require('bootstrap-sass');
+    // Grab only the bootstrap components we need
+    require('./bs-collapse');
+    require('./bs-dropdown');
+    require('./bs-modal');
 } catch (e) {}
 
 /**
