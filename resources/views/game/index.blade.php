@@ -1,10 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="game-container">
-	<canvas id="myCanvas" width="480" height="320"></canvas>
-
-  	@include('scores.create')
+<div class="game">
+	<div class="game-container">
+		<button id="startGame" onClick="startGame()">Start Game</button>
+		<canvas id="myCanvas" width="735" height="500"></canvas>
+	</div>
 </div>
 @endsection
 
