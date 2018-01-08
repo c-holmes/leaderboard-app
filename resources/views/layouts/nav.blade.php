@@ -13,10 +13,11 @@
 			<li class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="/highscores" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Highscores</a>
 				<div class="dropdown-menu" aria-labelledby="dropdown01">
-					<a class="dropdown-item" href="#">Today</a>
-					<a class="dropdown-item" href="#">This Week</a>
-					<a class="dropdown-item" href="#">This Month</a>
-					<a class="dropdown-item" href="#">All Time</a>
+					<a class="dropdown-item" href="/highscores?date=daily">Today</a>
+					<a class="dropdown-item" href="/highscores?date=weekly">This Week</a>
+					<a class="dropdown-item" href="/highscores?date=monthly">This Month</a>
+					<a class="dropdown-item" href="/highscores?date=yearly">This Year</a>
+					<a class="dropdown-item" href="/highscores">All Time</a>
 				</div>
 			</li>
 		</ul>

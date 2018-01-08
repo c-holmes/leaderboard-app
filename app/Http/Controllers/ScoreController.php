@@ -13,7 +13,7 @@ class ScoreController extends Controller
 
     public function show()
     {
-        $scores = Score::orderBy('score', 'desc')->get();
+        $scores = Score::highscores();
 
     	return view('scores.index', compact('scores'));
     }

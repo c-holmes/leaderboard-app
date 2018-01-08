@@ -1,7 +1,7 @@
 @extends ('layouts.master')
 
 @section('content')
-<h2>Highscores</h2>
+<h2>{{ucfirst(request('date'))}} Highscores</h2>
 <div class="table-responsive">
 	<table class="table table-striped">
 		<thead>

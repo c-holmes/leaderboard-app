@@ -136,6 +136,7 @@ function drawLives() {
 }
 
 function gameOver(gameScore) {
+  // post score to db
   axios.post('/scores', { score: gameScore }).then(function (response) {
     console.log(response);
   }).catch(function (error) {
@@ -159,6 +160,7 @@ function draw() {
     lives -= 1;
     if (!lives) {
       gameOver(score);
+      window.cancelAnimationFrame(undefined);
     } else {
       x = canvas.width / 2;
       y = canvas.height - 30;
@@ -189,8 +191,28 @@ function draw() {
     paddleX -= 7;
   }
 
-  requestAnimationFrame(draw);
+  window.requestAnimationFrame(draw);
 }
+
+// var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+//                             window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+// var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+
+// var start = Date.now();  // Only supported in FF. Other browsers can use something like Date.now().
+
+// var myReq;
+
+// function step(timestamp) {
+//   var progress = timestamp - start;
+//   d.style.left = Math.min(progress / 10, 200) + 'px';
+//   if (progress < 2000) {
+//     myReq = requestAnimationFrame(step);
+//   }
+// }
+// myReq = requestAnimationFrame(step);
+
+// cancelAnimationFrame(myReq);
 
 function startGame() {
   draw();
